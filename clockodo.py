@@ -51,10 +51,10 @@ def home_office(days: tuple[int]):
         add_home_office_days(key, [day.strftime("%Y-%m-%d") for day in selected])
     elif c == 'n':
         click.echo('Abort!')
-        exit(0)
+        sys.exit(0)
     else:
         click.echo('Invalid input. Aborted!')
-        exit(0)
+        sys.exit(0)
 
 def add_home_office_days(api_key: dict, dates: list[str]):
     for date in dates:
