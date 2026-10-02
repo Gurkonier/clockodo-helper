@@ -70,6 +70,9 @@ def add_home_office_days(api_key: dict, dates: list[str]):
                 "type": 8
             }
         )
+        if response.status_code != 200:
+            print(f"Error for {date}: {response.status_code} - {response.text}")
+
 
 @click.group()
 def commands():
