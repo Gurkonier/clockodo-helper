@@ -58,15 +58,14 @@ def home_office(days: tuple[int]):
 
 def add_home_office_days(api_key: dict, dates: list[str]):
     for date in dates:
-        requests.post(
-            url=api_url+"absences",
+        response = requests.post(
+            url=api_url+"v4/absences",
             headers={
                 "X-Clockodo-External-Application": f"{application_name};{api_key["email"]}"
             },
             auth=HTTPBasicAuth(api_key["email"], api_key["key"]),
             params={
                 "date_since": date,
-                "date_until": date,
                 "type": 8
             }
         )
